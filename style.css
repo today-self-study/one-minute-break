@@ -10,9 +10,9 @@ body, html {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  /* 눈이 편안한 연녹색 그라데이션 */
-  background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
-  opacity: 0.95;
+  /* 검정에 가까운 어두운 그라데이션 */
+  background: linear-gradient(120deg, #181c20 0%, #23272f 100%);
+  opacity: 1;
   animation: bgMove 20s ease-in-out infinite alternate;
 }
 
@@ -32,24 +32,26 @@ body, html {
 }
 
 h1 {
-  color: #2d6a4f;
+  color: #f1f3f6;
   margin-bottom: 32px;
-  text-shadow: 0 2px 8px rgba(255,255,255,0.5);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 #start-btn {
-  background: rgba(255,255,255,0.85);
-  border: none;
+  background: rgba(255,255,255,0.10);
+  border: 1.5px solid #3a3f47;
   border-radius: 24px;
   padding: 18px 40px;
   font-size: 1.3rem;
-  color: #2d6a4f;
+  color: #f1f3f6;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  transition: background 0.2s, transform 0.2s, border 0.2s;
 }
 #start-btn:hover {
-  background: #b7e5b4;
+  background: #23272f;
+  border: 1.5px solid #5eead4;
+  color: #5eead4;
   transform: scale(1.05);
 }
 
@@ -64,16 +66,17 @@ h1 {
 #progress-bar-container {
   width: 320px;
   height: 18px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   margin-bottom: 18px;
   overflow: hidden;
+  border: 1.5px solid #23272f;
 }
 #progress-bar {
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, #a8e063 0%, #56ab2f 100%);
+  background: linear-gradient(90deg, #5eead4 0%, #a7ffeb 100%);
   border-radius: 12px 0 0 12px;
   transition: width 0.3s cubic-bezier(.4,2,.6,1);
 }
@@ -84,42 +87,15 @@ h1 {
 
 #message {
   font-size: 1.4rem;
-  color: #2d6a4f;
-  background: rgba(255,255,255,0.7);
+  color: #e0f2fe;
+  background: rgba(30,41,59,0.85);
   border-radius: 16px;
   padding: 10px 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.17);
   min-width: 180px;
   text-align: center;
   display: inline-block;
-}
-
-/* 잔잔한 애니메이션: 부드러운 구름 (연녹색/흰색) */
-.background-animation::before, .background-animation::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.18;
-  background: linear-gradient(120deg, #fff 60%, #e0ffe6 100%);
-  z-index: 1;
-}
-.background-animation::before {
-  width: 300px; height: 120px;
-  left: 10vw; top: 20vh;
-  animation: cloudMove1 18s linear infinite alternate;
-}
-.background-animation::after {
-  width: 220px; height: 90px;
-  right: 12vw; bottom: 18vh;
-  animation: cloudMove2 22s linear infinite alternate;
-}
-@keyframes cloudMove1 {
-  0% { transform: translateX(0) scale(1); }
-  100% { transform: translateX(60px) scale(1.08); }
-}
-@keyframes cloudMove2 {
-  0% { transform: translateX(0) scale(1); }
-  100% { transform: translateX(-40px) scale(1.12); }
+  border: 1.5px solid #334155;
 }
 
 @media (max-width: 600px) {

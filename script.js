@@ -3,10 +3,11 @@ const timerEl = document.getElementById('timer');
 const messageEl = document.getElementById('message');
 const progressBar = document.getElementById('progress-bar');
 
-let timer = null;
-let timeLeft = 60;
 let isRunning = false;
 let lastInterrupt = 0;
+let startTime = null;
+let duration = 60; // seconds
+let animationFrameId = null;
 
 function showMessage(msg, duration = 1500) {
   messageEl.textContent = msg;
@@ -21,28 +22,32 @@ function showMessage(msg, duration = 1500) {
   }
 }
 
-function updateProgressBar() {
-  const percent = (timeLeft / 60) * 100;
+function updateProgressBarSmooth() {
+  if (!isRunning) return;
+  const now = Date.now();
+  const elapsed = (now - startTime) / 1000;
+  const timeLeft = Math.max(0, duration - elapsed);
+  const percent = (timeLeft / duration) * 100;
   progressBar.style.width = percent + '%';
+
+  if (timeLeft > 0) {
+    animationFrameId = requestAnimationFrame(updateProgressBarSmooth);
+  } else {
+    progressBar.style.width = '0%';
+    showMessage('수고했어 오늘도 🌿', 0);
+    startBtn.style.display = 'block';
+    isRunning = false;
+  }
 }
 
 function startTimer() {
   isRunning = true;
-  timeLeft = 60;
-  updateProgressBar();
+  startTime = Date.now();
   showMessage('');
   startBtn.style.display = 'none';
-  timer = setInterval(() => {
-    timeLeft--;
-    updateProgressBar();
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      progressBar.style.width = '0%';
-      showMessage('수고했어 오늘도 🌿', 0);
-      startBtn.style.display = 'block';
-      isRunning = false;
-    }
-  }, 1000);
+  progressBar.style.width = '100%';
+  if (animationFrameId) cancelAnimationFrame(animationFrameId);
+  updateProgressBarSmooth();
 }
 
 function handleInterrupt(e) {

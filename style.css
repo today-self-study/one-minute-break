@@ -10,7 +10,7 @@ body, html {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  background: linear-gradient(120deg, #181c20 0%, #23272f 50%, #232946 100%);
+  background: linear-gradient(120deg, #181818 0%, #232323 50%, #444 100%);
 }
 
 .container {
@@ -24,26 +24,26 @@ body, html {
 }
 
 h1 {
-  color: #f1f3f6;
+  color: #f5f5f5;
   margin-bottom: 32px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
 #start-btn {
-  background: rgba(255,255,255,0.10);
-  border: 1.5px solid #3a3f47;
+  background: #232323;
+  border: 1.5px solid #444;
   border-radius: 24px;
   padding: 18px 40px;
   font-size: 1.3rem;
-  color: #f1f3f6;
+  color: #f5f5f5;
   cursor: pointer;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  transition: background 0.2s, transform 0.2s, border 0.2s;
+  transition: background 0.2s, transform 0.2s, border 0.2s, color 0.2s;
 }
 #start-btn:hover {
-  background: #23272f;
-  border: 1.5px solid #5eead4;
-  color: #5eead4;
+  background: #444;
+  border: 1.5px solid #bbb;
+  color: #fff;
   transform: scale(1.05);
 }
 
@@ -58,17 +58,17 @@ h1 {
 #progress-bar-container {
   width: 320px;
   height: 18px;
-  background: rgba(255,255,255,0.08);
+  background: #232323;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   margin-bottom: 18px;
   overflow: hidden;
-  border: 1.5px solid #23272f;
+  border: 1.5px solid #444;
 }
 #progress-bar {
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, #5eead4 0%, #a7ffeb 100%);
+  background: linear-gradient(90deg, #e0e0e0 0%, #fff 100%);
   border-radius: 12px 0 0 12px;
   transition: width 0.3s cubic-bezier(.4,2,.6,1);
 }
@@ -79,15 +79,15 @@ h1 {
 
 #message {
   font-size: 1.4rem;
-  color: #e0f2fe;
-  background: rgba(30,41,59,0.85);
+  color: #f5f5f5;
+  background: #232323;
   border-radius: 16px;
   padding: 10px 24px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.17);
   min-width: 180px;
   text-align: center;
   display: inline-block;
-  border: 1.5px solid #334155;
+  border: 1.5px solid #444;
 }
 
 @media (max-width: 600px) {

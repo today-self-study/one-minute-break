@@ -10,14 +10,15 @@ body, html {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-  opacity: 0.85;
+  /* 눈이 편안한 연녹색 그라데이션 */
+  background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+  opacity: 0.95;
   animation: bgMove 20s ease-in-out infinite alternate;
 }
 
 @keyframes bgMove {
   0% { filter: blur(0px) brightness(1); }
-  100% { filter: blur(2px) brightness(1.1); }
+  100% { filter: blur(2px) brightness(1.05); }
 }
 
 .container {
@@ -31,24 +32,24 @@ body, html {
 }
 
 h1 {
-  color: #333;
+  color: #2d6a4f;
   margin-bottom: 32px;
   text-shadow: 0 2px 8px rgba(255,255,255,0.5);
 }
 
 #start-btn {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.85);
   border: none;
   border-radius: 24px;
   padding: 18px 40px;
   font-size: 1.3rem;
-  color: #444;
+  color: #2d6a4f;
   cursor: pointer;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   transition: background 0.2s, transform 0.2s;
 }
 #start-btn:hover {
-  background: #fceabb;
+  background: #b7e5b4;
   transform: scale(1.05);
 }
 
@@ -60,12 +61,25 @@ h1 {
   align-items: center;
 }
 
+#progress-bar-container {
+  width: 320px;
+  height: 18px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+#progress-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #a8e063 0%, #56ab2f 100%);
+  border-radius: 12px 0 0 12px;
+  transition: width 0.3s cubic-bezier(.4,2,.6,1);
+}
+
 #timer {
-  font-size: 2.5rem;
-  color: #222;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 8px rgba(255,255,255,0.4);
+  display: none;
 }
 
 #message {
@@ -80,13 +94,13 @@ h1 {
   display: inline-block;
 }
 
-/* 잔잔한 애니메이션: 부드러운 구름 */
+/* 잔잔한 애니메이션: 부드러운 구름 (연녹색/흰색) */
 .background-animation::before, .background-animation::after {
   content: '';
   position: absolute;
   border-radius: 50%;
-  opacity: 0.25;
-  background: #fff;
+  opacity: 0.18;
+  background: linear-gradient(120deg, #fff 60%, #e0ffe6 100%);
   z-index: 1;
 }
 .background-animation::before {
@@ -109,8 +123,8 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  #progress-bar-container { width: 90vw; min-width: 120px; }
   h1 { font-size: 1.5rem; }
-  #timer { font-size: 2rem; }
   #message { font-size: 1.1rem; min-width: 120px; }
   #start-btn { font-size: 1rem; padding: 12px 24px; }
 } 

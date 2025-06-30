@@ -10,15 +10,7 @@ body, html {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  /* 검정에 가까운 어두운 그라데이션 */
-  background: linear-gradient(120deg, #181c20 0%, #23272f 100%);
-  opacity: 1;
-  animation: bgMove 20s ease-in-out infinite alternate;
-}
-
-@keyframes bgMove {
-  0% { filter: blur(0px) brightness(1); }
-  100% { filter: blur(2px) brightness(1.05); }
+  background: #000;
 }
 
 .container {
